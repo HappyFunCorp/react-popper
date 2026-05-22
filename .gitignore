@@ -8,8 +8,9 @@
 # NPM / Yarn
 node_modules
 npm-debug.log
-dist
-lib
+# dist and lib intentionally not ignored — the HappyFunCorp fork ships
+# prebuilt artifacts so this repo is npm-installable directly from a git
+# URL (`github:HappyFunCorp/react-popper#tag`) without a build step.
 yarn-error.log
 coverage
 
