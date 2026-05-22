@@ -1,7 +1,7 @@
 {
   "name": "react-popper",
-  "version": "2.3.0",
-  "description": "Official library to use Popper on React projects",
+  "version": "2.3.0-r19.0",
+  "description": "Official library to use Popper on React projects (HappyFunCorp fork: React 19 peer range + prebuilt for direct git installs)",
   "license": "MIT",
   "author": "Travis Arnold <travis@souporserious.com> (http://souporserious.com)",
   "contributors": [
@@ -32,7 +32,8 @@
     "test:flow": "flow check",
     "test:jest": "jest",
     "test:eslint": "eslint src",
-    "prepare": "yarn build",
+    "prepare": "node -e \"require('fs').existsSync('lib/cjs/index.js') || (console.error('Run yarn build before publishing this fork.'), process.exit(1))\"",
+    "build:fork": "yarn build:clean && yarn build:esm && yarn build:cjs && yarn build:umd && yarn build:flow",
     "precommit": "pretty-quick --staged && test",
     "prepublishOnly": "git-branch-is master"
   },
@@ -43,10 +44,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/popperjs/react-popper"
+    "url": "https://github.com/HappyFunCorp/react-popper"
   },
   "bugs": {
-    "url": "https://github.com/popperjs/react-popper/issues"
+    "url": "https://github.com/HappyFunCorp/react-popper/issues"
   },
   "keywords": [
     "react",
@@ -59,8 +60,8 @@
   ],
   "peerDependencies": {
     "@popperjs/core": "^2.0.0",
-    "react": "^16.8.0 || ^17 || ^18",
-    "react-dom": "^16.8.0 || ^17 || ^18"
+    "react": "^16.8.0 || ^17 || ^18 || ^19",
+    "react-dom": "^16.8.0 || ^17 || ^18 || ^19"
   },
   "dependencies": {
     "react-fast-compare": "^3.0.1",
